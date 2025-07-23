@@ -7,9 +7,9 @@ import { AIChatbot } from "@/components/ai-chatbot"
 import { ScrollToTop } from "@/components/scroll-to-top"
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.dev",
+  title: "Luxe Jewelry",
+  description: "Luxe Jewelry - Timeless Elegance, Crafted to Perfection",
+  generator: "Luxe Jewelry",
 }
 
 export default function RootLayout({

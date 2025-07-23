@@ -21,18 +21,18 @@ export default function HomePage() {
               <h1 className="text-2xl font-bold">Luxe Jewelry</h1>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                Rings
+              <Link href="/collections/siblings-bond" className="text-muted-foreground hover:text-foreground transition-colors">
+                Siblings
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                Necklaces
+              <Link href="/collections/wedding" className="text-muted-foreground hover:text-foreground transition-colors">
+                Wedding
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                Earrings
+              <Link href="/collections/casual" className="text-muted-foreground hover:text-foreground transition-colors">
+                Casual
               </Link>
-              <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              {/* <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 Bracelets
-              </Link>
+              </Link> */}
             </nav>
             <Button>Shop Now</Button>
           </div>
@@ -40,8 +40,15 @@ export default function HomePage() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-r from-emerald-50 to-teal-50">
-        <div className="container mx-auto px-4">
+      <section
+        className="relative py-20 bg-cover bg-center"
+        style={{
+          backgroundImage: `url('/hero_section.jpg')`,
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-teal-50 opacity-70"></div>
+
+        <div className="relative container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <Badge variant="secondary" className="mb-4">
               New Collection Available
@@ -50,8 +57,7 @@ export default function HomePage() {
               Timeless Elegance, <span className="text-primary">Crafted to Perfection</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8">
-              Discover our exquisite collection of handcrafted jewelry, where each piece tells a story of luxury and
-              sophistication.
+              Discover our exquisite collection of handcrafted jewelry, where each piece tells a story of luxury and sophistication.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 bg-emerald-600 hover:bg-emerald-700">
@@ -64,6 +70,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
 
       {/* Promotional Widgets */}
       <section className="py-16 bg-white">
