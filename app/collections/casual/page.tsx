@@ -135,21 +135,21 @@ export default function CasualCollectionPage() {
                     />
                   </div>
                 </div>
-                <div className="space-y-4">
+                {/* <div className="space-y-4">
                   <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 p-4 flex flex-col items-center justify-center">
                     <Moon className="h-8 w-8 text-teal-600 mb-2" />
                     <span className="text-xs font-medium text-teal-700">Evening</span>
                   </div>
                   <div className="aspect-square rounded-2xl overflow-hidden bg-white shadow-lg">
                     <Image
-                      src={casualProducts[2]?.images[0] || "/placeholder.svg"}
+                      src={casualProducts[3]?.images[0] || "/placeholder.svg"}
                       alt="Evening style"
                       width={120}
                       height={120}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -192,47 +192,6 @@ export default function CasualCollectionPage() {
         </div>
       </section>
 
-      {/* Styling Tips */}
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Styling Made Simple</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Learn how to style our casual pieces for maximum impact and versatility.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {[
-              {
-                title: "Layering Basics",
-                description: "Mix different chain lengths for a trendy layered look",
-                tip: "Start with a choker, add a medium chain, finish with a long pendant",
-              },
-              {
-                title: "Mix & Match",
-                description: "Combine different metals and textures confidently",
-                tip: "Gold and silver together create a modern, eclectic style",
-              },
-              {
-                title: "Day to Night",
-                description: "Transform your look with simple additions",
-                tip: "Add statement earrings to elevate your daytime jewelry",
-              },
-            ].map((tip, index) => (
-              <Card key={index} className="bg-white border-0 shadow-lg">
-                <CardContent className="p-6">
-                  <h3 className="font-bold text-gray-900 mb-3">{tip.title}</h3>
-                  <p className="text-gray-600 mb-4">{tip.description}</p>
-                  <div className="bg-teal-50 p-3 rounded-lg">
-                    <p className="text-sm text-teal-700 font-medium">💡 Pro Tip: {tip.tip}</p>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Products Grid */}
       <section className="py-16 bg-white">

@@ -52,7 +52,8 @@ export function WriteReviewDialog({ product }: WriteReviewDialogProps) {
           Write a Review
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[500px]">
+      <DialogContent className="sm:max-w-[500px] h-[90vh] overflow-y-auto">
+
         <DialogHeader>
           <DialogTitle>Write a Review</DialogTitle>
           <DialogDescription>
