@@ -43,29 +43,29 @@ export default function HomePage() {
       <section
         className="relative py-20 bg-cover bg-center"
         style={{
-          backgroundImage: `url('/hero_section.jpg')`,
+          backgroundImage: `url('/herobg.jpeg')`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-50 to-teal-50 opacity-70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-neutral-800 to-black opacity-70"></div>
 
         <div className="relative container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <Badge variant="secondary" className="mb-4">
               New Collection Available
             </Badge>
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               Timeless Elegance, <span className="text-primary">Crafted to Perfection</span>
             </h2>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-muted-foreground mb-8 text-white">
               Discover our exquisite collection of handcrafted jewelry, where each piece tells a story of luxury and sophistication.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="text-lg px-8 bg-emerald-600 hover:bg-emerald-700">
                 Explore Collection
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent">
+              <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent text-white border-white hover:bg-white hover:text-black">
                 Custom Design
-              </Button>
+              </Button>s
             </div>
           </div>
         </div>
