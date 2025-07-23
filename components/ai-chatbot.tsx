@@ -28,6 +28,8 @@ export function AIChatbot() {
       timestamp: new Date(),
     },
   ])
+
+
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [chatHeight, setChatHeight] = useState("70vh")
@@ -50,13 +52,19 @@ export function AIChatbot() {
     if (isOpen && inputRef.current) {
       inputRef.current.focus()
     }
+    console.log("OPENAI_API_KEY =", process.env.OPENAI_API_KEY);
   }, [isOpen])
 
-  useEffect(() => {
-    if (scrollAreaRef.current) {
-      scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight
-    }
-  }, [messages])
+useEffect(() => {
+  if (scrollAreaRef.current) {
+    scrollAreaRef.current.scrollTo({
+      top: scrollAreaRef.current.scrollHeight,
+      behavior: "smooth",
+    })
+  }
+}, [messages])
+
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -149,7 +157,8 @@ export function AIChatbot() {
       {isOpen && (
         <div className="fixed bottom-6 right-6 z-50 w-96 max-w-[calc(100vw-2rem)]">
           <Card className="shadow-2xl border-0 overflow-hidden" style={{ height: chatHeight }}>
-            <CardHeader className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-4 flex-shrink-0">
+           <CardHeader className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-4 sticky top-0 z-10">
+
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
@@ -171,7 +180,8 @@ export function AIChatbot() {
               </div>
             </CardHeader>
 
-            <CardContent className="p-0 flex flex-col flex-1 overflow-hidden">
+           <CardContent className="p-0 flex flex-col h-full overflow-hidden">
+
               {/* Messages */}
               <ScrollArea className="flex-1 p-4" ref={scrollAreaRef} style={{ height: messageAreaHeight }}>
                 <div className="space-y-4">
@@ -186,9 +196,8 @@ export function AIChatbot() {
                         </Avatar>
                       )}
                       <div
-                        className={`max-w-[80%] rounded-2xl px-4 py-2 ${
-                          message.role === "user" ? "bg-emerald-600 text-white" : "bg-gray-100 text-gray-900"
-                        }`}
+                        className={`max-w-[80%] rounded-2xl px-4 py-2 ${message.role === "user" ? "bg-emerald-600 text-white" : "bg-gray-100 text-gray-900"
+                          }`}
                       >
                         <p className="text-sm leading-relaxed">{message.content}</p>
                         <p className={`text-xs mt-1 ${message.role === "user" ? "text-emerald-100" : "text-gray-500"}`}>

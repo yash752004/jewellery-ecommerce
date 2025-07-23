@@ -65,7 +65,7 @@ export default function HomePage() {
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 bg-transparent text-white border-white hover:bg-white hover:text-black">
                 Custom Design
-              </Button>s
+              </Button>
             </div>
           </div>
         </div>

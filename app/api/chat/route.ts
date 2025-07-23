@@ -1,52 +1,54 @@
-import { type NextRequest, NextResponse } from "next/server"
-import { generateText } from "ai"
-import { openai } from "@ai-sdk/openai"
+// app/api/chat/route.ts
 
-export async function POST(request: NextRequest) {
+import { OpenAI } from "openai";
+import { NextResponse } from "next/server";
+
+const openai = new OpenAI({
+  // apiKey: process.env.OPENAI_API_KEY!,
+  apiKey: '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',
+});
+
+export async function POST(req: Request) {
   try {
-    const { messages } = await request.json()
+    const body = await req.json();
+    console.log("🟢 Received body:", body);
 
-    // Early exit if no OpenAI key is configured
-    if (!process.env.OPENAI_API_KEY) {
-      return NextResponse.json({
-        message:
-          "I'm currently offline for maintenance, but I'd love to help! You can browse our collections or contact our customer service team directly for immediate assistance.",
-      })
+    const { messages, model = "gpt-3.5-turbo" } = body;
+
+    if (!messages || !Array.isArray(messages)) {
+      return NextResponse.json(
+        { error: "Invalid or missing 'messages' array." },
+        { status: 400 }
+      );
     }
 
-    const { text } = await generateText({
-      model: openai("gpt-4o"),
-      system: `You are a knowledgeable and friendly jewelry expert assistant for Luxe Jewelry, a premium jewelry e-commerce store. Your role is to help customers with:
+    const completion = await openai.chat.completions.create({
+      model,
+      messages,
+    });
 
-1. Product recommendations based on their needs, style, and budget
-2. Jewelry care and maintenance advice
-3. Information about different materials (gold, silver, platinum, diamonds, gemstones)
-4. Styling advice and how to match jewelry with outfits
-5. Gift suggestions for special occasions
-6. Information about our collections (Siblings Bond, Wedding Collection, Casual Collection)
-7. General jewelry knowledge and education
+    const reply =
+      completion.choices[0]?.message?.content ||
+      "I couldn't generate a response.";
 
-Store Information:
-- We offer rings, necklaces, earrings, and bracelets
-- Materials include 14k/18k gold, platinum, sterling silver, diamonds, and precious gemstones
-- We have lifetime warranty on all pieces
-- Free shipping worldwide
-- 30-day return policy
-- Custom design services available
+    return NextResponse.json({ message: reply });
+  } catch (err: any) {
+    console.error("🔴 API Error:", err);
 
-Tone: Professional yet warm, knowledgeable but not overwhelming, helpful and enthusiastic about jewelry. Keep responses concise but informative. If asked about specific products not in our catalog, provide general advice and suggest they browse our collections.
+    if (err.status && err.response) {
+      return NextResponse.json(
+        {
+          error: "OpenAI API error",
+          status: err.status,
+          details: err.response?.data || err.message,
+        },
+        { status: err.status }
+      );
+    }
 
-Always aim to be helpful while gently guiding customers toward making a purchase or learning more about our services.`,
-      messages: messages,
-      maxTokens: 300,
-    })
-
-    return NextResponse.json({ message: text })
-  } catch (error) {
-    console.error("Chat API error:", error)
-    return NextResponse.json({
-      message:
-        "I apologize, but I'm having a brief technical issue. While I get back online, feel free to explore our beautiful collections or contact our customer service team for immediate assistance!",
-    })
+    return NextResponse.json(
+      { error: "Internal server error", message: err.message },
+      { status: 500 }
+    );
   }
 }
