@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Luxe Jewelry",
   description: "Luxe Jewelry - Timeless Elegance, Crafted to Perfection",
   generator: "Luxe Jewelry",
+  icons: {
+    icon: "/1.png", // or .svg/.png etc.
+  },
 }
 
 export default function RootLayout({
