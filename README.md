@@ -2,7 +2,7 @@
 
 A modern, AI-powered jewelry e-commerce platform built with Next.js, featuring beautiful product showcases, intelligent recommendations, and an interactive chatbot assistant.
 
-![Luxe Jewelry Demo](https://img.shields.io/badge/Demo-Live-brightgreen)
+![Luxe Jewelry Demo](https://jewellery-ecommerce-flax.vercel.app)
 ![Next.js](https://img.shields.io/badge/Next.js-15-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0-38bdf8)
