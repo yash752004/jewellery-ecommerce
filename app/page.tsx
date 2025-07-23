@@ -79,7 +79,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Features */}
+      
+
+      {/* New Products Carousel */}
+      <NewProductsCarousel />
+
+{/* Features */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -114,9 +119,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* New Products Carousel */}
-      <NewProductsCarousel />
 
       {/* Collections Showcase */}
       <CollectionsShowcase />
@@ -229,7 +231,8 @@ export default function HomePage() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Luxe Jewelry. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Luxe Jewelry. All rights reserved.</p>
+          
           </div>
         </div>
       </footer>
