@@ -9,7 +9,7 @@ import { Gem, ArrowLeft, Coffee, Sun, Moon, Zap, Sparkles } from "lucide-react"
 
 export default function CasualCollectionPage() {
   // Filter products for casual collection
-  const casualProducts = products.filter((p) => p.category === "Earrings" || p.name.includes("Chain"))
+  const casualProducts = products.filter((p) => p.category === "Earrings" || p.name.includes("Chain") || p.name.includes("Bracelet"))
 
   const casualStory = {
     title: "Everyday Elegance",
@@ -135,21 +135,21 @@ export default function CasualCollectionPage() {
                     />
                   </div>
                 </div>
-                {/* <div className="space-y-4">
+                <div className="space-y-4">
                   <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-100 to-indigo-100 p-4 flex flex-col items-center justify-center">
                     <Moon className="h-8 w-8 text-teal-600 mb-2" />
                     <span className="text-xs font-medium text-teal-700">Evening</span>
                   </div>
                   <div className="aspect-square rounded-2xl overflow-hidden bg-white shadow-lg">
                     <Image
-                      src={casualProducts[3]?.images[0] || "/placeholder.svg"}
+                      src={casualProducts[2]?.images[0] || "/placeholder.svg"}
                       alt="Evening style"
                       width={120}
                       height={120}
                       className="w-full h-full object-cover"
                     />
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
           </div>
